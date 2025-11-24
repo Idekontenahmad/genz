@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Ternak 4 Channel</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root{
+  --bg:#F8F9FC;
+  --card:#FFFFFF;
+  --border:#E3E7F0;
+  --text:#15171A;
+  --sub:#777C86;
+  --accent:#1F3A93;
+  --shadow:0 10px 24px rgba(0,0,0,0.06);
+}
+
+*{
+  box-sizing:border-box;
+  font-family:"Inter",sans-serif;
+}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* HEADER */
+header{
+  background:var(--card);
+  border-bottom:1px solid var(--border);
+  padding:14px 20px;
+  position:sticky;
+  top:0;
+  z-index:50;
+}
+
+.header-inner{
+  max-width:1024px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+}
+
+.logo{
+  font-weight:600;
+  font-size:16px;
+}
+
+.badge{
+  font-size:11px;
+  padding:3px 8px;
+  border-radius:999px;
+  background:#EDF1FF;
+  color:var(--accent);
+}
+
+.nav-btn{
+  border-radius:20px;
+  border:1px solid var(--border);
+  background:var(--card);
+  padding:7px 12px;
+  font-size:12px;
+  cursor:pointer;
+}
+
+/* MAIN WRAP */
+main{
+  max-width:1024px;
+  margin:18px auto 26px;
+  padding:0 16px;
+}
+
+/* INTRO CARD */
+.intro{
+  background:var(--card);
+  border-radius:16px;
+  border:1px solid var(--border);
+  padding:14px 16px;
+  box-shadow:var(--shadow);
+  margin-bottom:18px;
+}
+
+.intro-title{
+  font-size:16px;
+  font-weight:600;
+  margin-bottom:4px;
+}
+
+.intro-sub{
+  font-size:12.5px;
+  color:var(--sub);
+}
+
+/* GRID CHANNEL */
+.grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+}
+
+@media(min-width:720px){
+  .grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+.card{
+  background:var(--card);
+  border-radius:14px;
+  border:1px solid var(--border);
+  padding:14px 14px 12px;
+  box-shadow:var(--shadow);
+}
+
+/* CARD HEADER */
+.card-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:8px;
+}
+
+.channel-label{
+  font-size:12px;
+  font-weight:600;
+  color:var(--sub);
+  text-transform:uppercase;
+  letter-spacing:0.06em;
+}
+
+.badge-small{
+  font-size:11px;
+  padding:3px 7px;
+  border-radius:999px;
+  background:#F1F2F5;
+  color:var(--sub);
+}
+
+/* FORM ELEMENTS */
+label{
+  font-size:11.5px;
+  color:var(--sub);
+  display:block;
+  margin-bottom:3px;
+}
+
+input,select,textarea{
+  width:100%;
+  border-radius:9px;
+  border:1px solid var(--border);
+  padding:7px 9px;
+  font-size:12.5px;
+  margin-bottom:7px;
+  background:#F9FAFD;
+  color:var(--text);
+}
+
+textarea{
+  resize:none;
+  height:52px;
+}
+
+/* ROWS */
+.row{
+  display:flex;
+  gap:8px;
+}
+
+.row > div{
+  flex:1;
+}
+
+/* TAG */
+.tag{
+  font-size:11px;
+  padding:3px 8px;
+  border-radius:999px;
+  background:#F3F4F7;
+  color:var(--sub);
+}
+
+/* FOOTER BUTTONS */
+.footer-actions{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:6px;
+}
+
+.chip{
+  font-size:11px;
+  color:var(--sub);
+}
+
+.btn-small{
+  border-radius:999px;
+  border:none;
+  background:var(--accent);
+  color:white;
+  font-size:11.5px;
+  padding:6px 10px;
+  cursor:pointer;
+}
+
+.btn-small.secondary{
+  background:transparent;
+  color:var(--accent);
+  border:1px solid var(--accent);
+}
+
+.btn-small + .btn-small{
+  margin-left:6px;
+}
+
+/* CTA GROUP */
+.btn-group{
+  display:flex;
+  justify-content:flex-end;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div>
+      <div class="logo">Ternak 4 Channel Dashboard</div>
+      <span class="badge">Creator Mode • Gen Z</span>
+    </div>
+    <button class="nav-btn">Link ke Tools Ide Konten ▼</button>
+  </div>
+</header>
+
+<main>
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="intro-title">Kontrol semua channel dalam satu layar.</div>
+    <div class="intro-sub">
+      Catat posisi tiap channel, niche, target, dan ide video. Desain minimalis biar enak dipakai sehari-hari di HP maupun laptop.
+    </div>
+  </section>
+
+  <!-- GRID 4 CHANNEL -->
+  <section class="grid">
+
+    <!-- CHANNEL 1 -->
+    <article class="card">
+      <div class="card-header">
+        <div>
+          <div class="channel-label">Channel 1</div>
+          <div style="font-size:13px;font-weight:600;">Channel Utama / Personal</div>
+        </div>
+        <div class="badge-small">Fokus: Brand Pribadi</div>
+      </div>
+
+      <label>Nama Channel</label>
+      <input type="text" placeholder="Contoh: Ahmad Gen Z Official">
+
+      <div class="row">
+        <div>
+          <label>Niche Utama</label>
+          <input type="text" placeholder="Tutorial kreator, motivasi, journey">
+        </div>
+        <div>
+          <label>Target Subscriber</label>
+          <input type="text" placeholder="Contoh: 200K">
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label>Jadwal Upload</label>
+          <select>
+            <option>2x / minggu</option>
+            <option>3x / minggu</option>
+            <option>Harian</option>
+          </select>
+        </div>
+        <div>
+          <label>Peran Channel</label>
+          <input type="text" placeholder="Channel utama, bangun trust & story">
+        </div>
+      </div>
+
+      <label>Ide Konten / Series Utama</label>
+      <textarea placeholder="Contoh: progres journey jadi kreator, reaction, behind the scene, eksperimen ternak channel."></textarea>
+
+      <div class="footer-actions">
+        <span class="chip">Prioritas: 🔥 Tinggi</span>
+        <div class="btn-group">
+          <button class="btn-small secondary">Catat Ide</button>
+          <button class="btn-small">Checklist Upload</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- CHANNEL 2 -->
+    <article class="card">
+      <div class="card-header">
+        <div>
+          <div class="channel-label">Channel 2</div>
+          <div style="font-size:13px;font-weight:600;">Channel Faceless / Edukasi</div>
+        </div>
+        <div class="badge-small">Fokus: View & RPM</div>
+      </div>
+
+      <label>Nama Channel</label>
+      <input type="text" placeholder="Contoh: Fakta Islam Gen Z">
+
+      <div class="row">
+        <div>
+          <label>Niche Utama</label>
+          <input type="text" placeholder="Fakta Islami, tips ibadah, kisah inspiratif">
+        </div>
+        <div>
+          <label>Target Subscriber</label>
+          <input type="text" placeholder="Contoh: 100K">
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label>Jadwal Upload</label>
+          <select>
+            <option>Harian</option>
+            <option>2x / minggu</option>
+            <option>3x / minggu</option>
+          </select>
+        </div>
+        <div>
+          <label>Durasi Ideal</label>
+          <input type="text" placeholder="Contoh: 30–60 detik">
+        </div>
+      </div>
+
+      <label>Hook / Gaya Bahasa</label>
+      <textarea placeholder="Contoh: 'Sebelum lanjut, semoga yang like & subscribe dimudahkan rezekinya...'"></textarea>
+
+      <div class="footer-actions">
+        <span class="chip">Prioritas: ⚡ Growth</span>
+        <div class="btn-group">
+          <button class="btn-small secondary">List Topik</button>
+          <button class="btn-small">Tracking Perform</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- CHANNEL 3 -->
+    <article class="card">
+      <div class="card-header">
+        <div>
+          <div class="channel-label">Channel 3</div>
+          <div style="font-size:13px;font-weight:600;">Channel Eksperimen / Trend</div>
+        </div>
+        <div class="badge-small">Fokus: Tes Ide Baru</div>
+      </div>
+
+      <label>Nama Channel</label>
+      <input type="text" placeholder="Contoh: Viral Test Lab">
+
+      <div class="row">
+        <div>
+          <label>Niche Utama</label>
+          <input type="text" placeholder="Test format, trend TikTok, meme, remix">
+        </div>
+        <div>
+          <label>Target Subscriber</label>
+          <input type="text" placeholder="Contoh: 50K">
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label>Jadwal Upload</label>
+          <select>
+            <option>Harian</option>
+            <option>3x / minggu</option>
+            <option>Flexible</option>
+          </select>
+        </div>
+        <div>
+          <label>Platform Fokus</label>
+          <input type="text" placeholder="YouTube Shorts, Reels, TikTok">
+        </div>
+      </div>
+
+      <label>Rule Eksperimen</label>
+      <textarea placeholder="Contoh: 10 hari tes 1 format, lihat retention & CTR, kalau bagus di-scale di channel lain."></textarea>
+
+      <div class="footer-actions">
+        <span class="chip">Prioritas: 🧪 Eksperimen</span>
+        <div class="btn-group">
+          <button class="btn-small secondary">Log Eksperimen</button>
+          <button class="btn-small">Catat Winner</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- CHANNEL 4 -->
+    <article class="card">
+      <div class="card-header">
+        <div>
+          <div class="channel-label">Channel 4</div>
+          <div style="font-size:13px;font-weight:600;">Channel Monetisasi / Produk</div>
+        </div>
+        <div class="badge-small">Fokus: Income</div>
+      </div>
+
+      <label>Nama Channel</label>
+      <input type="text" placeholder="Contoh: Tools Kreator Store">
+
+      <div class="row">
+        <div>
+          <label>Niche Utama</label>
+          <input type="text" placeholder="Review tools, CapCut Pro, aplikasi premium">
+        </div>
+        <div>
+          <label>Target Subscriber</label>
+          <input type="text" placeholder="Contoh: 30K">
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label>Funnel Utama</label>
+          <input type="text" placeholder="Contoh: ke WA / grup prive kreator">
+        </div>
+        <div>
+          <label>CTA Utama</label>
+          <input type="text" placeholder="Contoh: 'Chat WA untuk price list'">
+        </div>
+      </div>
+
+      <label>Script / Pitch Jualan (Singkat)</label>
+      <textarea placeholder="Contoh: 'Kalau mau hasil maksimal, aku saranin pakai CapCut Pro. Aku jual versi murah khusus member, chat WA aja ya.'"></textarea>
+
+      <div class="footer-actions">
+        <span class="chip">Prioritas: 💰 Monetisasi</span>
+        <div class="btn-group">
+          <button class="btn-small secondary">Update Offer</button>
+          <button class="btn-small">Catat Conversion</button>
+        </div>
+      </div>
+    </article>
+
+  </section>
+</main>
+
+</body>
+</html>
