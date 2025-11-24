@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dashboard Ternak 4 Channel</title>
+<title>Bank Ide Konten – 4 Channel</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
@@ -11,13 +11,21 @@
 :root{
   --bg:#F8F9FC;
   --card:#FFFFFF;
-  --border:#E3E7F0;
-  --text:#15171A;
-  --sub:#777C86;
+  --border:#E5E8F0;
+  --text:#1B1D21;
+  --sub:#6F737B;
   --accent:#1F3A93;
-  --shadow:0 10px 24px rgba(0,0,0,0.06);
+  --shadow:0 12px 28px rgba(0,0,0,0.06);
 }
-
+body.dark{
+  --bg:#111315;
+  --card:#181A1E;
+  --border:#2A2C31;
+  --text:#F4F4F6;
+  --sub:#989EA6;
+  --accent:#4A78FF;
+  --shadow:0 12px 28px rgba(0,0,0,0.35);
+}
 *{
   box-sizing:border-box;
   font-family:"Inter",sans-serif;
@@ -27,202 +35,188 @@ body{
   margin:0;
   background:var(--bg);
   color:var(--text);
+  transition:.22s background,color;
 }
 
 /* HEADER */
 header{
+  padding:14px 20px;
   background:var(--card);
   border-bottom:1px solid var(--border);
-  padding:14px 20px;
   position:sticky;
   top:0;
-  z-index:50;
+  z-index:100;
 }
-
-.header-inner{
-  max-width:1024px;
+.header-wrap{
+  max-width:860px;
   margin:auto;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  gap:10px;
+  gap:8px;
 }
-
 .logo{
   font-weight:600;
-  font-size:16px;
+  font-size:17px;
 }
-
 .badge{
   font-size:11px;
   padding:3px 8px;
   border-radius:999px;
-  background:#EDF1FF;
+  background:#EEF3FF;
   color:var(--accent);
 }
-
-.nav-btn{
-  border-radius:20px;
+.small-btn{
   border:1px solid var(--border);
   background:var(--card);
-  padding:7px 12px;
+  border-radius:8px;
+  padding:6px 9px;
   font-size:12px;
   cursor:pointer;
 }
 
-/* MAIN WRAP */
+/* MAIN */
 main{
-  max-width:1024px;
-  margin:18px auto 26px;
-  padding:0 16px;
+  max-width:860px;
+  margin:auto;
+  padding:16px;
 }
-
-/* INTRO CARD */
-.intro{
-  background:var(--card);
-  border-radius:16px;
-  border:1px solid var(--border);
-  padding:14px 16px;
-  box-shadow:var(--shadow);
-  margin-bottom:18px;
-}
-
-.intro-title{
+.section-title{
   font-size:16px;
   font-weight:600;
   margin-bottom:4px;
 }
-
-.intro-sub{
+.section-sub{
   font-size:12.5px;
   color:var(--sub);
+  margin-bottom:10px;
 }
 
-/* GRID CHANNEL */
-.grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:14px;
-}
-
-@media(min-width:720px){
-  .grid{
-    grid-template-columns:1fr 1fr;
-  }
-}
-
-.card{
-  background:var(--card);
-  border-radius:14px;
-  border:1px solid var(--border);
-  padding:14px 14px 12px;
-  box-shadow:var(--shadow);
-}
-
-/* CARD HEADER */
-.card-header{
+/* TABS CHANNEL */
+.tabs{
   display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:8px;
+  gap:6px;
+  margin-bottom:12px;
+  overflow-x:auto;
 }
-
-.channel-label{
-  font-size:12px;
-  font-weight:600;
-  color:var(--sub);
-  text-transform:uppercase;
-  letter-spacing:0.06em;
-}
-
-.badge-small{
-  font-size:11px;
-  padding:3px 7px;
+.tab-btn{
   border-radius:999px;
-  background:#F1F2F5;
+  border:1px solid transparent;
+  padding:6px 11px;
+  font-size:12.5px;
+  cursor:pointer;
+  background:transparent;
+  white-space:nowrap;
   color:var(--sub);
 }
+.tab-btn.active{
+  border-color:var(--accent);
+  background:rgba(31,58,147,0.06);
+  color:var(--accent);
+}
 
-/* FORM ELEMENTS */
+/* TOP MENU (search, export, import) */
+.top-menu{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:12px;
+}
+.top-menu input{
+  flex:1;
+}
+.tool-btn{
+  padding:8px 11px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:8px;
+  font-size:12.5px;
+  cursor:pointer;
+}
+.tool-btn:hover{background:#EEF0F4;}
+body.dark .tool-btn:hover{background:#222428;}
+
+/* IDEA CARD */
+.idea{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:13px;
+  box-shadow:var(--shadow);
+  padding:14px 16px;
+  margin-bottom:14px;
+}
 label{
   font-size:11.5px;
   color:var(--sub);
   display:block;
   margin-bottom:3px;
 }
-
-input,select,textarea{
+input,textarea,select{
   width:100%;
   border-radius:9px;
   border:1px solid var(--border);
-  padding:7px 9px;
+  padding:8px 10px;
   font-size:12.5px;
   margin-bottom:7px;
   background:#F9FAFD;
   color:var(--text);
 }
-
 textarea{
   resize:none;
-  height:52px;
+  height:55px;
 }
-
-/* ROWS */
 .row{
   display:flex;
   gap:8px;
 }
-
 .row > div{
   flex:1;
 }
 
-/* TAG */
-.tag{
-  font-size:11px;
-  padding:3px 8px;
-  border-radius:999px;
-  background:#F3F4F7;
-  color:var(--sub);
-}
-
-/* FOOTER BUTTONS */
-.footer-actions{
+/* TOOLS BUTTONS */
+.tools{
   display:flex;
   justify-content:space-between;
-  align-items:center;
-  margin-top:6px;
+  margin-top:3px;
 }
-
-.chip{
-  font-size:11px;
-  color:var(--sub);
-}
-
-.btn-small{
-  border-radius:999px;
+.ai-btn,.copy-btn,.delete-btn{
+  padding:6px 10px;
+  font-size:12.5px;
+  border-radius:7px;
   border:none;
+  cursor:pointer;
+  font-weight:500;
+}
+.ai-btn{
+  background:#111;
+  color:white;
+}
+.copy-btn{
   background:var(--accent);
   color:white;
-  font-size:11.5px;
-  padding:6px 10px;
+}
+.delete-btn{
+  background:#E74C3C;
+  color:white;
+}
+.ai-btn:hover,.copy-btn:hover,.delete-btn:hover{
+  opacity:0.9;
+}
+
+/* ADD BUTTON */
+.add-btn{
+  width:100%;
+  max-width:300px;
+  display:block;
+  margin:14px auto 0;
+  background:var(--accent);
+  color:white;
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  font-size:14px;
+  font-weight:600;
   cursor:pointer;
-}
-
-.btn-small.secondary{
-  background:transparent;
-  color:var(--accent);
-  border:1px solid var(--accent);
-}
-
-.btn-small + .btn-small{
-  margin-left:6px;
-}
-
-/* CTA GROUP */
-.btn-group{
-  display:flex;
-  justify-content:flex-end;
 }
 </style>
 </head>
@@ -230,229 +224,288 @@ textarea{
 <body>
 
 <header>
-  <div class="header-inner">
+  <div class="header-wrap">
     <div>
-      <div class="logo">Ternak 4 Channel Dashboard</div>
-      <span class="badge">Creator Mode • Gen Z</span>
+      <div class="logo">Bank Ide Konten – 4 Channel</div>
+      <span class="badge">Apple Minimal • Ternak Channel</span>
     </div>
-    <button class="nav-btn">Link ke Tools Ide Konten ▼</button>
+    <button class="small-btn" onclick="toggleDark()">🌙</button>
   </div>
 </header>
 
 <main>
-  <!-- INTRO -->
-  <section class="intro">
-    <div class="intro-title">Kontrol semua channel dalam satu layar.</div>
-    <div class="intro-sub">
-      Catat posisi tiap channel, niche, target, dan ide video. Desain minimalis biar enak dipakai sehari-hari di HP maupun laptop.
-    </div>
-  </section>
+  <div class="section-title">Stok Ide per Channel</div>
+  <div class="section-sub">
+    Pilih channel di tab, lalu catat judul, dialog, dan prompt. Setiap channel punya daftar ide sendiri-sendiri.
+  </div>
 
-  <!-- GRID 4 CHANNEL -->
-  <section class="grid">
+  <!-- Tabs Channel -->
+  <div class="tabs" id="tabs"></div>
 
-    <!-- CHANNEL 1 -->
-    <article class="card">
-      <div class="card-header">
-        <div>
-          <div class="channel-label">Channel 1</div>
-          <div style="font-size:13px;font-weight:600;">Channel Utama / Personal</div>
-        </div>
-        <div class="badge-small">Fokus: Brand Pribadi</div>
-      </div>
+  <!-- Search + Export/Import -->
+  <div class="top-menu">
+    <input type="text" id="searchIdea" placeholder="🔍 Cari di ide channel aktif..." oninput="filterSearchIdeas()">
+    <button class="tool-btn" onclick="exportIdeas()">📤 Export</button>
+    <button class="tool-btn" onclick="importIdeas()">📥 Import</button>
+  </div>
 
-      <label>Nama Channel</label>
-      <input type="text" placeholder="Contoh: Ahmad Gen Z Official">
-
-      <div class="row">
-        <div>
-          <label>Niche Utama</label>
-          <input type="text" placeholder="Tutorial kreator, motivasi, journey">
-        </div>
-        <div>
-          <label>Target Subscriber</label>
-          <input type="text" placeholder="Contoh: 200K">
-        </div>
-      </div>
-
-      <div class="row">
-        <div>
-          <label>Jadwal Upload</label>
-          <select>
-            <option>2x / minggu</option>
-            <option>3x / minggu</option>
-            <option>Harian</option>
-          </select>
-        </div>
-        <div>
-          <label>Peran Channel</label>
-          <input type="text" placeholder="Channel utama, bangun trust & story">
-        </div>
-      </div>
-
-      <label>Ide Konten / Series Utama</label>
-      <textarea placeholder="Contoh: progres journey jadi kreator, reaction, behind the scene, eksperimen ternak channel."></textarea>
-
-      <div class="footer-actions">
-        <span class="chip">Prioritas: 🔥 Tinggi</span>
-        <div class="btn-group">
-          <button class="btn-small secondary">Catat Ide</button>
-          <button class="btn-small">Checklist Upload</button>
-        </div>
-      </div>
-    </article>
-
-    <!-- CHANNEL 2 -->
-    <article class="card">
-      <div class="card-header">
-        <div>
-          <div class="channel-label">Channel 2</div>
-          <div style="font-size:13px;font-weight:600;">Channel Faceless / Edukasi</div>
-        </div>
-        <div class="badge-small">Fokus: View & RPM</div>
-      </div>
-
-      <label>Nama Channel</label>
-      <input type="text" placeholder="Contoh: Fakta Islam Gen Z">
-
-      <div class="row">
-        <div>
-          <label>Niche Utama</label>
-          <input type="text" placeholder="Fakta Islami, tips ibadah, kisah inspiratif">
-        </div>
-        <div>
-          <label>Target Subscriber</label>
-          <input type="text" placeholder="Contoh: 100K">
-        </div>
-      </div>
-
-      <div class="row">
-        <div>
-          <label>Jadwal Upload</label>
-          <select>
-            <option>Harian</option>
-            <option>2x / minggu</option>
-            <option>3x / minggu</option>
-          </select>
-        </div>
-        <div>
-          <label>Durasi Ideal</label>
-          <input type="text" placeholder="Contoh: 30–60 detik">
-        </div>
-      </div>
-
-      <label>Hook / Gaya Bahasa</label>
-      <textarea placeholder="Contoh: 'Sebelum lanjut, semoga yang like & subscribe dimudahkan rezekinya...'"></textarea>
-
-      <div class="footer-actions">
-        <span class="chip">Prioritas: ⚡ Growth</span>
-        <div class="btn-group">
-          <button class="btn-small secondary">List Topik</button>
-          <button class="btn-small">Tracking Perform</button>
-        </div>
-      </div>
-    </article>
-
-    <!-- CHANNEL 3 -->
-    <article class="card">
-      <div class="card-header">
-        <div>
-          <div class="channel-label">Channel 3</div>
-          <div style="font-size:13px;font-weight:600;">Channel Eksperimen / Trend</div>
-        </div>
-        <div class="badge-small">Fokus: Tes Ide Baru</div>
-      </div>
-
-      <label>Nama Channel</label>
-      <input type="text" placeholder="Contoh: Viral Test Lab">
-
-      <div class="row">
-        <div>
-          <label>Niche Utama</label>
-          <input type="text" placeholder="Test format, trend TikTok, meme, remix">
-        </div>
-        <div>
-          <label>Target Subscriber</label>
-          <input type="text" placeholder="Contoh: 50K">
-        </div>
-      </div>
-
-      <div class="row">
-        <div>
-          <label>Jadwal Upload</label>
-          <select>
-            <option>Harian</option>
-            <option>3x / minggu</option>
-            <option>Flexible</option>
-          </select>
-        </div>
-        <div>
-          <label>Platform Fokus</label>
-          <input type="text" placeholder="YouTube Shorts, Reels, TikTok">
-        </div>
-      </div>
-
-      <label>Rule Eksperimen</label>
-      <textarea placeholder="Contoh: 10 hari tes 1 format, lihat retention & CTR, kalau bagus di-scale di channel lain."></textarea>
-
-      <div class="footer-actions">
-        <span class="chip">Prioritas: 🧪 Eksperimen</span>
-        <div class="btn-group">
-          <button class="btn-small secondary">Log Eksperimen</button>
-          <button class="btn-small">Catat Winner</button>
-        </div>
-      </div>
-    </article>
-
-    <!-- CHANNEL 4 -->
-    <article class="card">
-      <div class="card-header">
-        <div>
-          <div class="channel-label">Channel 4</div>
-          <div style="font-size:13px;font-weight:600;">Channel Monetisasi / Produk</div>
-        </div>
-        <div class="badge-small">Fokus: Income</div>
-      </div>
-
-      <label>Nama Channel</label>
-      <input type="text" placeholder="Contoh: Tools Kreator Store">
-
-      <div class="row">
-        <div>
-          <label>Niche Utama</label>
-          <input type="text" placeholder="Review tools, CapCut Pro, aplikasi premium">
-        </div>
-        <div>
-          <label>Target Subscriber</label>
-          <input type="text" placeholder="Contoh: 30K">
-        </div>
-      </div>
-
-      <div class="row">
-        <div>
-          <label>Funnel Utama</label>
-          <input type="text" placeholder="Contoh: ke WA / grup prive kreator">
-        </div>
-        <div>
-          <label>CTA Utama</label>
-          <input type="text" placeholder="Contoh: 'Chat WA untuk price list'">
-        </div>
-      </div>
-
-      <label>Script / Pitch Jualan (Singkat)</label>
-      <textarea placeholder="Contoh: 'Kalau mau hasil maksimal, aku saranin pakai CapCut Pro. Aku jual versi murah khusus member, chat WA aja ya.'"></textarea>
-
-      <div class="footer-actions">
-        <span class="chip">Prioritas: 💰 Monetisasi</span>
-        <div class="btn-group">
-          <button class="btn-small secondary">Update Offer</button>
-          <button class="btn-small">Catat Conversion</button>
-        </div>
-      </div>
-    </article>
-
-  </section>
+  <!-- Konten Ide -->
+  <div id="ideaContent"></div>
+  <button class="add-btn" onclick="addIdea()">＋ Tambah Ide di Channel Ini</button>
 </main>
+
+<script>
+/* ========= KONFIGURASI CHANNEL ========= */
+const CHANNELS = [
+  "Ahmad Gen Z Official",
+  "Fakta Islam Gen Z",
+  "Viral Test Lab",
+  "Tools Kreator Store"
+];
+
+let activeChannel = CHANNELS[0]; // default tab
+
+/* ========= DARK MODE ========= */
+function toggleDark(){ document.body.classList.toggle("dark"); }
+
+/* ========= DATA STORAGE ========= */
+let ideas = JSON.parse(localStorage.getItem("ideas-4channel-tabs")) || [];
+
+/* ========= AI GENERATOR ========= */
+function aiGenerate(bahan){
+  const db = {
+    kardus:[
+      "Miniatur Masjid dari Kardus Bekas",
+      "Maafin kakek cuma bisa pakai kardus ini... kalau menurutmu nggak buruk, klik like & subscribe ya.",
+      "Vertical 9:16. Poor old grandfather crafting small mosque from brown cardboard. Soft daylight, worn clothes, cheap phone microphone."
+    ],
+    batok:[
+      "Miniatur Ka’bah dari Batok Kelapa",
+      "Cuma batok kelapa bekas ini, tapi niat kakek besar, Nak... bantu like & subscribe ya.",
+      "Long shot. Old man carving Ka'bah from coconut shell. Rough texture, warm dim light, emotional tone."
+    ],
+    serabut:[
+      "Miniatur Masjid dari Serabut Kelapa",
+      "Serabut kelapa kotor ini kakek bersihin pelan-pelan, terus kakek susun jadi masjid kecil... kalau kamu menghargai, klik like & subscribe ya.",
+      "Cinematic 9:16. Old man assembling coconut fibers into tiny mosque. Messy hands, humble house, emotional realism."
+    ],
+    koran:[
+      "Miniatur Ka’bah dari Koran Bekas",
+      "Dulu kakek cuma bisa baca koran... sekarang kakek coba bikin Ka'bah dari koran bekas ini. Kalau idenya nggak jelek, like & subscribe ya.",
+      "Vertical shot. Tiny Ka'bah made of folded old newspapers. Close-up hands, nostalgic mood, natural daylight."
+    ],
+    styrofoam:[
+      "Miniatur Rumah dari Styrofoam Bekas",
+      "Kakek ambil styrofoam dari belakang warung... kalau hasilnya nggak buruk-buruk amat, bantu dengan like & subscribe ya.",
+      "Styrofoam tiny house on wooden table. Simple tools, soft white light, poor but clean environment."
+    ]
+  };
+  return db[bahan] ? {
+    judul: db[bahan][0],
+    dialog: db[bahan][1],
+    prompt: db[bahan][2]
+  } : {judul:"",dialog:"",prompt:""};
+}
+
+/* ========= RENDER TABS ========= */
+function renderTabs(){
+  const tabs = document.getElementById("tabs");
+  tabs.innerHTML = "";
+  CHANNELS.forEach(ch=>{
+    const b=document.createElement("button");
+    b.className="tab-btn"+(ch===activeChannel?" active":"");
+    b.textContent=ch;
+    b.addEventListener("click",()=>{
+      activeChannel=ch;
+      renderTabs();
+      renderIdeas();
+      document.getElementById("searchIdea").value="";
+    });
+    tabs.appendChild(b);
+  });
+}
+
+/* ========= RENDER IDE BERDASARKAN CHANNEL ========= */
+function renderIdeas(){
+  const container=document.getElementById("ideaContent");
+  container.innerHTML="";
+  const filtered = ideas.filter(o=>o.chan===activeChannel);
+
+  filtered.forEach((o, idxInChan)=>{
+    // cari index asli di array utama
+    const realIndex = ideas.findIndex(x=>x===o);
+
+    const card=document.createElement("div");
+    card.className="idea";
+    card.innerHTML=`
+      <div class="row">
+        <div>
+          <label>Tanggal</label>
+          <input type="date" class="tanggal" value="${o.tanggal||new Date().toISOString().slice(0,10)}">
+        </div>
+        <div>
+          <label>Bahan</label>
+          <select class="tag">
+            <option ${o.tag==="Uncategorized"?"selected":""}>Uncategorized</option>
+            <option ${o.tag==="Kardus"?"selected":""}>Kardus</option>
+            <option ${o.tag==="Batok"?"selected":""}>Batok</option>
+            <option ${o.tag==="Serabut"?"selected":""}>Serabut</option>
+            <option ${o.tag==="Koran"?"selected":""}>Koran</option>
+            <option ${o.tag==="Styrofoam"?"selected":""}>Styrofoam</option>
+          </select>
+        </div>
+      </div>
+
+      <label>Judul Video</label>
+      <input type="text" class="judul" value="${o.judul||""}">
+
+      <label>Dialog (Sedih / Emotional)</label>
+      <textarea class="dialog">${o.dialog||""}</textarea>
+
+      <label>Prompt Kamera / Visual AI</label>
+      <textarea class="prompt">${o.prompt||""}</textarea>
+
+      <div class="tools">
+        <button class="ai-btn">🧠 Generate</button>
+        <div>
+          <button class="delete-btn">Hapus</button>
+          <button class="copy-btn">Copy</button>
+        </div>
+      </div>
+    `;
+
+    const tanggal=card.querySelector(".tanggal");
+    const tag=card.querySelector(".tag");
+    const judul=card.querySelector(".judul");
+    const dialog=card.querySelector(".dialog");
+    const prompt=card.querySelector(".prompt");
+
+    // autosave on input
+    [tanggal, tag, judul, dialog, prompt].forEach(el=>{
+      el.addEventListener("input",()=>{
+        ideas[realIndex]={
+          tanggal:tanggal.value,
+          chan:activeChannel,
+          tag:tag.value,
+          judul:judul.value,
+          dialog:dialog.value,
+          prompt:prompt.value
+        };
+        saveIdeas();
+      });
+    });
+
+    // AI generate
+    card.querySelector(".ai-btn").onclick=()=>{
+      const bahan = (tag.value||"").toLowerCase();
+      if(bahan==="uncategorized" || !bahan) return alert("Pilih bahan dulu (kardus/batok/serabut/koran/styrofoam)");
+      const h = aiGenerate(bahan);
+      judul.value=h.judul;
+      dialog.value=h.dialog;
+      prompt.value=h.prompt;
+      ideas[realIndex]={
+        tanggal:tanggal.value,
+        chan:activeChannel,
+        tag:tag.value,
+        judul:judul.value,
+        dialog:dialog.value,
+        prompt:prompt.value
+      };
+      saveIdeas();
+    };
+
+    // delete
+    card.querySelector(".delete-btn").onclick=()=>{
+      ideas.splice(realIndex,1);
+      saveIdeas();
+      renderIdeas();
+    };
+
+    // copy
+    card.querySelector(".copy-btn").onclick=()=>{
+      const txt=
+`📅 ${tanggal.value}
+🎥 Channel: ${activeChannel}
+🏷 Bahan: ${tag.value}
+
+🧾 Judul:
+${judul.value}
+
+🎭 Dialog:
+${dialog.value}
+
+🎬 Prompt:
+${prompt.value}`;
+      navigator.clipboard.writeText(txt);
+      alert("✔ Ide disalin!");
+    };
+
+    container.appendChild(card);
+  });
+
+  // kalau belum ada ide di channel ini, bisa kasih info kecil (opsional)
+  if(filtered.length===0){
+    const info=document.createElement("div");
+    info.style.fontSize="12.5px";
+    info.style.color="var(--sub)";
+    info.style.marginTop="6px";
+    info.textContent="Belum ada ide di channel ini. Klik tombol “Tambah Ide di Channel Ini”.";
+    container.appendChild(info);
+  }
+}
+
+/* ========= CRUD IDEA ========= */
+function addIdea(){
+  ideas.push({
+    tanggal:new Date().toISOString().slice(0,10),
+    chan:activeChannel,
+    tag:"Uncategorized",
+    judul:"",
+    dialog:"",
+    prompt:""
+  });
+  saveIdeas();
+  renderIdeas();
+}
+function saveIdeas(){
+  localStorage.setItem("ideas-4channel-tabs",JSON.stringify(ideas));
+}
+
+/* ========= SEARCH ========= */
+function filterSearchIdeas(){
+  const q=document.getElementById("searchIdea").value.toLowerCase();
+  document.querySelectorAll("#ideaContent .idea").forEach(card=>{
+    const text=card.innerText.toLowerCase();
+    card.style.display=text.includes(q)?"block":"none";
+  });
+}
+
+/* ========= EXPORT / IMPORT ========= */
+function exportIdeas(){
+  const a=document.createElement("a");
+  a.href="data:text/json;charset=utf-8,"+encodeURIComponent(localStorage.getItem("ideas-4channel-tabs")||"[]");
+  a.download="bank-ide-4channel-tabs.json";
+  a.click();
+}
+function importIdeas(){
+  const inp=document.createElement("input");
+  inp.type="file";inp.accept=".json";
+  inp.onchange=e=>{
+    const f=new FileReader();
+    f.onload=()=>{
+      localStorage.setItem("ideas-4channel-tabs",f.result);
+      ideas=JSON.parse(f.result||"[]");
+      renderIdeas();
+    };
+    f.readAsText(e.target.files[0]);
+  };
+  inp.click();
+}
+
+/* ========= INIT ========= */
+renderTabs();
+renderIdeas();
+</script>
 
 </body>
 </html>
